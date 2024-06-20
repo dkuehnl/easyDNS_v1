@@ -1,3 +1,13 @@
+/.venv
+/.vscode
+/main_copy.py
+/plain.html
+/scapy_doku.py
+/test.ipynb
+/__pycache__
+/easyDNS
+easyDNS.zip
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -10,13 +10,17 @@ from scapy.layers.dns import DNS, DNSRR, DNSQR, DNSRROPT
 from scapy.sendrecv import sr
 from scapy.all import get_if_addr, conf
 from socket import inet_aton
+import logging
 
 #Custom-Modules Importe
 import error
 
 #QT-Window ImportP
 from UI.mainwindow import Ui_MainWindow
-app = QApplication(sys.argv)
+
+#Logging
+# logging.basicConfig(level=logging.DEBUG, filename="app.log", filemode="w")
+# logging.debug("Logging gestartet")
 
 #Window definieren 
 class MainWindow(QMainWindow): 
@@ -43,7 +47,7 @@ class MainWindow(QMainWindow):
     def execute_dns(self): 
         query, typ = self.build_dns_query()
 
-        if not query: 
+        if not query:
             return
         
         ans, unans = sr(query, timeout=5)
@@ -335,6 +339,7 @@ class MainWindow(QMainWindow):
         window.close()
 
 #Window aufbauen
+app = QApplication(sys.argv)
 window = MainWindow() 
 window.show() 
 
